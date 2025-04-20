@@ -18,10 +18,12 @@
       overflow: hidden;
       cursor: pointer;
       user-select: none;
+      transition: background 0.5s ease;
     }
 
     .container {
       text-align: center;
+      transition: all 0.4s ease;
     }
 
     .photo {
@@ -40,9 +42,14 @@
     }
 
     .gift-box {
-      font-size: 50px;
+      font-size: 60px;
       margin-top: 30px;
-      transition: transform 0.3s ease;
+      animation: bounce 1s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
 
     .hidden-msg {
@@ -51,21 +58,28 @@
       color: #e91e63;
       display: none;
       margin-top: 20px;
+      animation: pop 0.6s ease;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
     }
   </style>
 </head>
 <body onclick="showWish()">
   <div class="container" id="mainContent">
-    <img src="https://i.postimg.cc/hPYmrW0f/cute-parrot.jpg" alt="Cute Parrot" class="photo" />
+    <img src="https://i.postimg.cc/G29Wcf2H/IMG-20250420-090004.jpg" alt="Kolhe Ji" class="photo">
     <div class="message">Happy Birthday Kolhe Ji</div>
-    <div class="gift-box" id="giftBox">🎁 Tap to Open</div>
-    <div id="hidden" class="hidden-msg">HAPPY BIRTHDAY!</div>
+    <div class="gift-box" id="giftBox">🎁</div>
+    <div id="hidden" class="hidden-msg">BHAI TERE TOTE PR PANKH <br> AAYE KI NAHI? </div>
   </div>
 
   <script>
     function showWish() {
       document.getElementById("giftBox").style.display = "none";
       document.getElementById("hidden").style.display = "block";
+      document.body.style.background = "linear-gradient(to right, #ffecd2, #fcb69f)";
     }
   </script>
 </body>
