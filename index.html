@@ -1,96 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Happy Birthday Kolhe Ji</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    * {
+    body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
+      background: linear-gradient(to right, #fbc2eb, #a6c1ee);
       font-family: 'Segoe UI', sans-serif;
-    }
-
-    body {
-      background: linear-gradient(to right, #ffecd2, #fcb69f);
-      height: 100vh;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      cursor: pointer;
+      user-select: none;
     }
 
     .container {
       text-align: center;
-      padding: 20px;
     }
 
     .photo {
       width: 200px;
       height: 200px;
-      border-radius: 50%;
       object-fit: cover;
-      border: 5px solid white;
+      border-radius: 50%;
       box-shadow: 0 0 20px rgba(0,0,0,0.2);
-      animation: pop 1s ease-in-out;
-    }
-
-    h1 {
-      margin: 20px 0;
-      font-size: 2.5rem;
-      color: #e91e63;
-      animation: fadeIn 2s ease-in-out;
-    }
-
-    .gift-box {
-      font-size: 5rem;
-      cursor: pointer;
-      transition: transform 0.3s;
-    }
-
-    .gift-box:hover {
-      transform: scale(1.1);
+      margin-bottom: 20px;
     }
 
     .message {
+      font-size: 2em;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .gift-box {
+      font-size: 50px;
       margin-top: 30px;
-      font-size: 3rem;
-      color: #673ab7;
+      transition: transform 0.3s ease;
+    }
+
+    .hidden-msg {
+      font-size: 3em;
+      font-weight: bold;
+      color: #e91e63;
       display: none;
-      animation: bounce 1s ease infinite alternate;
-     }
-
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(-20px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-
-    @keyframes pop {
-      0% { transform: scale(0.8); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
-    }
-
-    @keyframes bounce {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(-20px); }
+      margin-top: 20px;
     }
   </style>
 </head>
-<body>
-
-  <div class="container">
-    <img src="https://i.postimg.cc/G29Wcf2H/IMG-20250420-090004.jpg" alt="Kolhe Ji" class="photo"> 
-    <h1>Happy Birthday Kolhe Ji</h1>
-    <div class="gift-box" onclick="openGift()">🎁</div>
-    <div class="message" id="message">HAPPY BIRTHDAY!</div>
+<body onclick="showWish()">
+  <div class="container" id="mainContent">
+    <img src="https://i.postimg.cc/hPYmrW0f/cute-parrot.jpg" alt="Cute Parrot" class="photo" />
+    <div class="message">Happy Birthday Kolhe Ji</div>
+    <div class="gift-box" id="giftBox">🎁 Tap to Open</div>
+    <div id="hidden" class="hidden-msg">HAPPY BIRTHDAY!</div>
   </div>
 
   <script>
-    function openGift() {
-      document.querySelector('.gift-box').style.display = 'none';
-      document.getElementById('message').style.display = 'block';
+    function showWish() {
+      document.getElementById("giftBox").style.display = "none";
+      document.getElementById("hidden").style.display = "block";
     }
   </script>
-
 </body>
 </html>
